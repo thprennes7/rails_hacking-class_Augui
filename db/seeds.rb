@@ -8,12 +8,16 @@
 
 require 'faker'
 
+#Remet la base de donée a 0
 User.destroy_all
 Course.destroy_all
 
+#boucle pour faire des fakes random
 5.times do
+  #Random de course
   Course.create!(name: Faker::Name.name)
   5.times do
+    #Random d'user
     User.create!(name: Faker::Name.name, course_id: Course.last.id)
   end
 end
