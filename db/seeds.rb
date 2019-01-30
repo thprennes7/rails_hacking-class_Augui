@@ -7,3 +7,13 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 require 'faker'
+
+User.destroy_all
+Course.destroy_all
+
+5.times do
+  Course.create!(name: Faker::Name.name)
+  5.times do
+    User.create!(name: Faker::Name.name, course_id: Course.last.id)
+  end
+end
